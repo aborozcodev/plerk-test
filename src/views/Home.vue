@@ -65,6 +65,9 @@ export default {
   },
   computed: {
     filteredCategories() {
+      if (this.categories.length <= 0) {
+        return []
+      }
       return this.categories.filter((cat) =>
         cat.name[this.currentLang]
           .toLowerCase()
@@ -100,9 +103,14 @@ export default {
       getCategories()
         .then((res) => res.json())
         .then((data) => {
-          this.categories = data.data
-          this.statusCode = data.status
-          this.isLoading = false
+          if (data.status == 'ok') {
+            this.categories = data.data
+            this.statusCode = data.status
+            this.isLoading = false
+          } else {
+            this.statusCode = data.status
+            this.isLoading = false
+          }
         })
         .catch(() => {
           this.isLoading = false
