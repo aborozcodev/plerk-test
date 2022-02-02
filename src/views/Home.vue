@@ -24,8 +24,11 @@
     <p v-else-if="inputSearch != '' && filteredCategories.length <= 0">
       {{ notFound }}
     </p>
-    <p v-else-if="isTimeout">{{ timeOut }}</p>
-    <p v-else-if="statusCode != 'ok'">
+    <p v-else-if="filteredCategories.length <= 0 && !isLoading">
+      {{ NotFoundCategories }}
+    </p>
+    <p v-if="isTimeout">{{ timeOut }}</p>
+    <p v-if="statusCode != 'ok'">
       {{ serverError }}
     </p>
   </div>
