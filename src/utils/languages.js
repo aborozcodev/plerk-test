@@ -14,6 +14,7 @@ const dictionary = {
     Libre: 'Libre',
     Personalizada: 'Personalizada',
     NotFound: 'Categoria no encontrada',
+    Category: 'Categoria',
     Timeout: 'Hay problemas con la red, intenta de nuevo',
     ServerError: 'Hubo un problema con el servidor, intenta de nuevo',
   },
